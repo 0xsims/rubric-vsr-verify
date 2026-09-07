@@ -1,0 +1,39 @@
+{
+  "name": "rubric-vsr-verify",
+  "version": "0.1.0",
+  "description": "Client-side verification of Verifiable Settlement Receipts (VSR) for x402 payments: prove what was delivered, who signed it, and that it's anchored. Post-quantum (ML-DSA-65), three independent tiers, never blocks your agent.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "tsc"
+  },
+  "keywords": [
+    "x402",
+    "vsr",
+    "receipt",
+    "attestation",
+    "post-quantum",
+    "ml-dsa",
+    "agent-payments",
+    "verification"
+  ],
+  "author": "Echelon Intelligence Group LLC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0xsims/rubric-vsr-verify"
+  },
+  "dependencies": {
+    "@noble/post-quantum": "^0.3.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "@types/node": "^20.0.0"
+  }
+}
