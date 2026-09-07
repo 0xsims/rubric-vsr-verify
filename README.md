@@ -35,7 +35,7 @@ const result = await verifyVSR(receiptDocument); // e.g. from GET /v1/receipt/:i
 
 - The anchor tier queries the issuer's discovery endpoint. A verifier who distrusts the issuer entirely can resolve the payloadHash against the public Hedera mirror node directly; a `mirrorDirect` option is planned.
 - A `pass` on all three tiers proves delivery integrity, signer identity, and anchoring. It does not judge the *quality* of what was delivered - evidence, not arbitration.
-- A valid signature proves the receipt was signed by the key it carries - it does not by itself prove that key belongs to the seller you meant to pay. Bind identity by checking `signature.signatures[0].publicKeyId` against the signer you expect (for Rubric-issued receipts, resolve the key via GET https://rubric-protocol.com/v1/verify/:attestationId, which returns the signing key for any anchored attestation).
+- A valid signature proves the receipt was signed by the key it carries - it does not by itself prove that key belongs to the seller you meant to pay. Bind identity by checking `signature.signatures[0].publicKeyId` against the signer you expect (for Rubric-issued receipts, check the key against the published federation registry at https://rubric-protocol.com/.well-known/rubric-keys.json - the registry is itself attested and HCS-anchored, so key membership is verifiable without trusting the webpage).
 - Signature verification uses @noble/post-quantum (^0.3.0). Receipt and signer formats: https://rubric-protocol.com/specs/vsr-v0.4.md
 
 ## License
